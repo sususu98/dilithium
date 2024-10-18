@@ -96,17 +96,17 @@ add_executable(test_mul test/test_mul.c randombytes.c ${KECCAK_SOURCES})
 target_compile_definitions(test_mul PRIVATE UDBENCH)
 
 # 生成NIST KAT程序
-add_executable(PQCgenKAT_sign2 nistkat/PQCgenKAT_sign.c nistkat/rng.c ${KECCAK_SOURCES})
-target_compile_definitions(PQCgenKAT_sign2 PRIVATE DILITHIUM_MODE=2)
-target_link_libraries(PQCgenKAT_sign2 crypto)
+# add_executable(PQCgenKAT_sign2 nistkat/PQCgenKAT_sign.c nistkat/rng.c ${KECCAK_SOURCES})
+# target_compile_definitions(PQCgenKAT_sign2 PRIVATE DILITHIUM_MODE=2)
+# target_link_libraries(PQCgenKAT_sign2 crypto)
 
-add_executable(PQCgenKAT_sign3 nistkat/PQCgenKAT_sign.c nistkat/rng.c ${KECCAK_SOURCES})
-target_compile_definitions(PQCgenKAT_sign3 PRIVATE DILITHIUM_MODE=3)
-target_link_libraries(PQCgenKAT_sign3 crypto)
+# add_executable(PQCgenKAT_sign3 nistkat/PQCgenKAT_sign.c nistkat/rng.c ${KECCAK_SOURCES})
+# target_compile_definitions(PQCgenKAT_sign3 PRIVATE DILITHIUM_MODE=3)
+# target_link_libraries(PQCgenKAT_sign3 crypto)
 
-add_executable(PQCgenKAT_sign5 nistkat/PQCgenKAT_sign.c nistkat/rng.c ${KECCAK_SOURCES})
-target_compile_definitions(PQCgenKAT_sign5 PRIVATE DILITHIUM_MODE=5)
-target_link_libraries(PQCgenKAT_sign5 crypto)
+# add_executable(PQCgenKAT_sign5 nistkat/PQCgenKAT_sign.c nistkat/rng.c ${KECCAK_SOURCES})
+# target_compile_definitions(PQCgenKAT_sign5 PRIVATE DILITHIUM_MODE=5)
+# target_link_libraries(PQCgenKAT_sign5 crypto)
 
 # 清理目标
 add_custom_target(clean_build
