@@ -15,7 +15,7 @@ static inline uint64_t cpucycles(void) {
   return result;
 }
 
-#else
+#elif defined (__x86_64__)  /* Available on all x86_64 cpus */
 
 static inline uint64_t cpucycles(void) {
   uint64_t result;
@@ -24,6 +24,25 @@ static inline uint64_t cpucycles(void) {
     : "=a" (result) : : "%rdx");
 
   return result;
+}
+
+// sudo insmod pmu_el0_cycle_counter.ko
+#elif defined(__aarch64__)
+
+static inline uint64_t cpucycles(void) {
+  uint64_t result;
+
+  asm volatile("mrs %0, pmccntr_el0"
+               : "=r"(result));
+
+  return result;
+}
+
+#else
+
+static inline uint64_t cpucycles(void) {
+  fprintf(stderr, "cpucycles not implemented for this architecture\n");
+  exit(1);
 }
 
 #endif
